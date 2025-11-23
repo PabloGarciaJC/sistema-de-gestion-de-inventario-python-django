@@ -13,11 +13,11 @@ init-app: | copy-env create-symlink up print-urls
 
 .PHONY: copy-env
 copy-env:
-	@ [ ! -f .env ] && cp .env.example .env || true
+	@ [ ! -f .env ] && cp .env.example .env && chown $(USER):$(USER) .env || true
 
 .PHONY: create-symlink
 create-symlink:
-	@ [ -L .docker/.env ] || ln -s ../.env .docker/.env
+	@ [ -L .docker/.env ] || (ln -s ../.env .docker/.env && chown -h $(USER):$(USER) .docker/.env)
 
 .PHONY: print-urls
 print-urls:
@@ -63,13 +63,6 @@ shell:
 ## ---------------------------------------------------------
 ## Limpieza de Recursos Docker
 ## ---------------------------------------------------------		
-
-.PHONY: clean-project
-clean-project:
-	$(DOCKER_COMPOSE) down -v --remove-orphans
-	sudo docker rmi -f cms_python-server_docker || true
-	sudo docker volume rm cms_python_persistent_python || true
-	sudo docker network rm network_python || true
 
 .PHONY: clean-docker
 clean-docker:

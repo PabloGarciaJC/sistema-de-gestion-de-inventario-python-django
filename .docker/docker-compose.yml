@@ -12,6 +12,7 @@ services:
         MY_USER: ${MY_USER}
         MY_GROUP: ${MY_GROUP}
     container_name: server_docker_${PROJECT_NAME}
+    user: "${NEW_UID}:${NEW_GID}"
     ports:
       - "${APP_PORT}:8081"
     volumes:

@@ -81,6 +81,12 @@ RUN echo ". /etc/terminal" | tee -a /home/${MY_USER}/.bashrc /root/.bashrc && \
 COPY ./server/bash/terminal /etc/terminal
 COPY ./server/bash/sudo-user /etc/sudoers.d/sudo-user
 
+## ---------------------------------------------------------
+## Configurar entrypoint para corregir permisos
+## ---------------------------------------------------------
+
+COPY ./server/scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 ## ---------------------------------------------------------
 ## Exponer el puerto 8081
@@ -92,4 +98,5 @@ EXPOSE 8081
 ## Comando por defecto
 ## ---------------------------------------------------------
 
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["python", "app.py"]
