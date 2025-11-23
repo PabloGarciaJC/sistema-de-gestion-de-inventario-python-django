@@ -1,22 +1,14 @@
 ## ---------------------------------------------------------
-## Keep PATH for all sudo commands
+## Mantener PATH en comandos sudo
 ## ---------------------------------------------------------
-## Mantiene la variable de entorno PATH para todos los comandos ejecutados con sudo.
-## Esto asegura que el PATH completo se conserve y se utilice cuando se ejecuten comandos con sudo,
-## evitando problemas si el PATH incluye directorios personalizados o adicionales.
 Defaults   env_keep += "PATH"
 
 ## ---------------------------------------------------------
-## Set secure PATH for sudo commands
+## Configurar PATH seguro para sudo
 ## ---------------------------------------------------------
-## Define los directorios que se utilizarán cuando se ejecute un comando con sudo.
-## Esto asegura que solo se utilicen los comandos ubicados en estos directorios, 
-## añadiendo una capa de seguridad y evitando la ejecución de comandos no autorizados.
 Defaults   secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/local/node/bin
 
 ## ---------------------------------------------------------
-## Allow pablogarciajc user to do anything without password
+## Permitir a pablogarciajc usar sudo sin contraseña
 ## ---------------------------------------------------------
-## Permite al usuario 'pablogarciajc' ejecutar cualquier comando con sudo sin necesidad de proporcionar una contraseña.
-## Esto le otorga al usuario permisos completos sobre el sistema sin solicitar autenticación adicional.
 %pablogarciajc  ALL=(ALL)       NOPASSWD: ALL

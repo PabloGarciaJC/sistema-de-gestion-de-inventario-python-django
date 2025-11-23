@@ -9,29 +9,17 @@ services:
         NEW_GID: ${NEW_GID}
         MY_USER: ${MY_USER}
         MY_GROUP: ${MY_GROUP}
-    container_name: python_app
+    container_name: server_docker_${PROJECT_NAME}
     ports:
       - "${APP_PORT}:8081"
     volumes:
-      - ../.:/app
-    environment:
-      - FLASK_APP=app.py
-      - FLASK_ENV=${FLASK_ENV}
-      - FLASK_DEBUG=${FLASK_DEBUG}
-      - DB_HOST=mysql
-      - DB_PORT=3306
-      - DB_DATABASE=${DB_DATABASE}
-      - DB_USER=${MYSQL_USER}
-      - DB_PASSWORD=${MYSQL_PASSWORD}
+      - ../.:/var/www/html
     networks:
-      - network_python
-    depends_on:
-      - mysql
-    command: python app.py
+      - app_network
 
   mysql:
     image: mysql:latest
-    container_name: mysql_python
+    container_name: mysql_${PROJECT_NAME}
     ports:
       - "${MYSQL_PORT}:3306"
     environment:
@@ -42,13 +30,13 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - ./mysql/database:/docker-entrypoint-initdb.d
-      - persistent_python:/var/lib/mysql:rw
+      - mysql_data:/var/lib/mysql:rw
     networks:
-      - network_python
+      - app_network
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin_python
+    container_name: phpmyadmin_${PROJECT_NAME}
     ports:
       - "${PHPMYADMIN_PORT}:80"
     environment:
@@ -56,11 +44,12 @@ services:
     depends_on:
       - mysql
     networks:
-      - network_python
+      - app_network
 
 networks:
-  network_python:
-    name: network_python
+  app_network:
+    name: network_${PROJECT_NAME}
 
 volumes:
-  persistent_python:
+  mysql_data:
+    name: persistent_${PROJECT_NAME}

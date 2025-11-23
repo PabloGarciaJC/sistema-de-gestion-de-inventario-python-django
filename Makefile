@@ -58,7 +58,7 @@ stop:
 
 .PHONY: shell
 shell:
-	$(DOCKER_COMPOSE) exec --user pablogarciajc server_docker  /bin/sh -c "cd /app; exec bash -l"
+	$(DOCKER_COMPOSE) exec --user pablogarciajc server_docker /bin/bash
 
 ## ---------------------------------------------------------
 ## Limpieza de Recursos Docker

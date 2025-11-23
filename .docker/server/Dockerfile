@@ -1,8 +1,8 @@
-ARG PYTHON_VERSION=3.11
+ARG PYTHON_VERSION
 FROM python:${PYTHON_VERSION}-slim
 
 ## ---------------------------------------------------------
-## Argumentos (valores del archivo .env)
+## Argumentos
 ## ---------------------------------------------------------
 
 ARG NEW_UID
@@ -40,29 +40,35 @@ RUN groupadd -g ${NEW_GID} -r ${MY_GROUP} && \
 useradd -u ${NEW_UID} -m -s /bin/bash -g ${MY_GROUP} ${MY_USER}
 
 ## ---------------------------------------------------------
-## Actualizar pip y instalar herramientas base
+## Actualizar herramientas de gestión de paquetes Python
+## (pip: instalador, setuptools: compilador, wheel: paquetes precompilados)
 ## ---------------------------------------------------------
 
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel
 
 ## ---------------------------------------------------------
+## Instalar dependencias de Python
+## ---------------------------------------------------------
+
+RUN pip install --no-cache-dir \
+    Flask==3.0.0 \
+    Flask-Cors==4.0.0 \
+    mysqlclient==2.2.1 \
+    SQLAlchemy==2.0.23 \
+    Flask-SQLAlchemy==3.1.1 \
+    python-dotenv==1.0.0
+
+## ---------------------------------------------------------
 ## Configurar directorio de trabajo
 ## ---------------------------------------------------------
 
-WORKDIR /app
-
-## ---------------------------------------------------------
-## Copiar requirements.txt e instalar dependencias Python
-## ---------------------------------------------------------
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+WORKDIR /var/www/html
 
 ## ---------------------------------------------------------
 ## Copiar el contenido de la aplicación
 ## ---------------------------------------------------------
 
-COPY --chown=${MY_USER}:${MY_GROUP} . /app
+COPY --chown=${MY_USER}:${MY_GROUP} . /var/www/html
 
 ## ---------------------------------------------------------
 ## Configurar bash
@@ -73,11 +79,12 @@ RUN echo ". /etc/terminal" | tee -a /home/${MY_USER}/.bashrc /root/.bashrc && \
 COPY ./server/bash/terminal /etc/terminal
 COPY ./server/bash/sudo-user /etc/sudoers.d/sudo-user
 
+
 ## ---------------------------------------------------------
-## Exponer el puerto 5000 (Flask por defecto)
+## Exponer el puerto 8081
 ## ---------------------------------------------------------
 
-EXPOSE 5000
+EXPOSE 8081
 
 ## ---------------------------------------------------------
 ## Comando por defecto
