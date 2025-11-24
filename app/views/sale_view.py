@@ -481,4 +481,120 @@ class SaleView:
         """
         
         return HttpResponse(Layout.render('Editar Venta', user, 'ventas', content))
+    
+    @staticmethod
+    def view(user, sale, details):
+        """Vista de detalle de una venta"""
+        from django.middleware.csrf import get_token
+        
+        estado_class = {
+            'pendiente': 'warning',
+            'completada': 'success',
+            'cancelada': 'danger'
+        }.get(sale['estado'], 'secondary')
+        
+        # Detalles de productos
+        details_rows = ""
+        if details:
+            for idx, detail in enumerate(details, 1):
+                details_rows += f"""
+                <tr>
+                    <td>{idx}</td>
+                    <td>{detail['producto_nombre']}</td>
+                    <td>{detail['cantidad']}</td>
+                    <td>S/ {detail['precio_unitario']:.2f}</td>
+                    <td>S/ {detail['subtotal']:.2f}</td>
+                </tr>
+                """
+        else:
+            details_rows = '<tr><td colspan="5" class="text-center text-muted">Sin productos</td></tr>'
+        
+        content = f"""
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h3 mb-0">Detalle de Venta #{sale['id']}</h1>
+            <div>
+                <a href="/ventas/{sale['id']}/editar/" class="btn btn-warning">
+                    <i class="fas fa-edit"></i> Editar
+                </a>
+                <a href="/ventas/" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </a>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Información de la Venta</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <strong>N° Factura:</strong> {sale.get('numero_factura', 'N/A')}
+                        </div>
+                        <div class="mb-2">
+                            <strong>Cliente:</strong> {sale['cliente_nombre']}
+                        </div>
+                        <div class="mb-2">
+                            <strong>Fecha:</strong> {sale['fecha']}
+                        </div>
+                        <div class="mb-2">
+                            <strong>Estado:</strong> 
+                            <span class="badge bg-{estado_class}">{sale['estado']}</span>
+                        </div>
+                        <div class="mb-2">
+                            <strong>Tipo de Pago:</strong> {sale.get('tipo_pago', 'N/A')}
+                        </div>
+                        <div class="mb-2">
+                            <strong>Usuario:</strong> {sale['usuario_nombre']}
+                        </div>
+                        <div class="mb-2">
+                            <strong>Notas:</strong> {sale.get('notas', 'Sin notas')}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">Totales</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                            <span class="h4 mb-0">Total:</span>
+                            <span class="h3 mb-0 text-success">S/ {sale['total']:.2f}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h5 class="mb-0">Productos</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th width="50">#</th>
+                                <th>Producto</th>
+                                <th width="100">Cantidad</th>
+                                <th width="120">P. Unitario</th>
+                                <th width="120">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {details_rows}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        """
+        
+        from app.views.layout import Layout
+        return Layout.render(user, content, 'ventas', 'Detalle de Venta')
 

@@ -83,7 +83,11 @@ class Layout:
             {'url': '/productos/', 'label': 'Productos', 'key': 'productos'},
             {'url': '/categorias/', 'label': 'Categorías', 'key': 'categorias'},
             {'url': '/clientes/', 'label': 'Clientes', 'key': 'clientes'},
+            {'url': '/proveedores/', 'label': 'Proveedores', 'key': 'proveedores'},
+            {'url': '/almacenes/', 'label': 'Almacenes', 'key': 'almacenes'},
+            {'url': '/roles/', 'label': 'Roles', 'key': 'roles'},
             {'url': '/ventas/', 'label': 'Ventas', 'key': 'ventas'},
+            {'url': '/compras/', 'label': 'Compras', 'key': 'compras'},
             {'url': '/reportes/', 'label': 'Reportes', 'key': 'reportes'},
             {'url': '/configuracion/', 'label': 'Configuración', 'key': 'configuracion'},
         ]

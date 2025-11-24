@@ -187,4 +187,28 @@ class SaleController:
         
         # Redireccionar a la lista
         return HttpResponseRedirect('/ventas/')
+    
+    @staticmethod
+    def view(request, sale_id):
+        """Ver detalle de una venta"""
+        # Verificar autenticación
+        user_id = request.session.get('user_id')
+        
+        if not user_id:
+            return HttpResponseRedirect('/login/')
+        
+        user = User.get_by_id(user_id)
+        if not user:
+            request.session.flush()
+            return HttpResponseRedirect('/login/')
+        
+        # Obtener la venta
+        sale = Sale.get_by_id(sale_id)
+        if not sale:
+            return HttpResponseRedirect('/ventas/')
+        
+        # Obtener detalles de la venta
+        details = Sale.get_details(sale_id)
+        
+        return HttpResponse(SaleView.view(user, sale, details))
 

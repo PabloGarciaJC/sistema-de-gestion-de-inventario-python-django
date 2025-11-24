@@ -4,7 +4,11 @@ from app.controllers.dashboard_controller import DashboardController
 from app.controllers.product_controller import ProductController
 from app.controllers.category_controller import CategoryController
 from app.controllers.client_controller import ClientController
+from app.controllers.supplier_controller import SupplierController
+from app.controllers.role_controller import RoleController
+from app.controllers.warehouse_controller import WarehouseController
 from app.controllers.sale_controller import SaleController
+from app.controllers.purchase_controller import PurchaseController
 from app.controllers.report_controller import ReportController
 from app.controllers.config_controller import ConfigController
 
@@ -25,10 +29,28 @@ urlpatterns = [
     path('clientes/crear/', ClientController.create, name='clients_create'),
     path('clientes/<int:client_id>/editar/', ClientController.edit, name='clients_edit'),
     path('clientes/<int:client_id>/eliminar/', ClientController.delete, name='clients_delete'),
+    path('proveedores/', SupplierController.index, name='suppliers'),
+    path('proveedores/crear/', SupplierController.create, name='suppliers_create'),
+    path('proveedores/<int:supplier_id>/editar/', SupplierController.edit, name='suppliers_edit'),
+    path('proveedores/<int:supplier_id>/eliminar/', SupplierController.delete, name='suppliers_delete'),
+    path('roles/', RoleController.index, name='roles'),
+    path('roles/crear/', RoleController.create, name='roles_create'),
+    path('roles/<int:role_id>/editar/', RoleController.edit, name='roles_edit'),
+    path('roles/<int:role_id>/eliminar/', RoleController.delete, name='roles_delete'),
+    path('almacenes/', WarehouseController.index, name='warehouses'),
+    path('almacenes/crear/', WarehouseController.create, name='warehouses_create'),
+    path('almacenes/<int:warehouse_id>/editar/', WarehouseController.edit, name='warehouses_edit'),
+    path('almacenes/<int:warehouse_id>/eliminar/', WarehouseController.delete, name='warehouses_delete'),
     path('ventas/', SaleController.index, name='sales'),
     path('ventas/crear/', SaleController.create, name='sales_create'),
     path('ventas/<int:sale_id>/editar/', SaleController.edit, name='sales_edit'),
     path('ventas/<int:sale_id>/eliminar/', SaleController.delete, name='sales_delete'),
+    path('ventas/<int:sale_id>/ver/', SaleController.view, name='sales_view'),
+    path('compras/', PurchaseController.index, name='purchases'),
+    path('compras/crear/', PurchaseController.create, name='purchases_create'),
+    path('compras/<int:purchase_id>/editar/', PurchaseController.edit, name='purchases_edit'),
+    path('compras/<int:purchase_id>/eliminar/', PurchaseController.delete, name='purchases_delete'),
+    path('compras/<int:purchase_id>/ver/', PurchaseController.view, name='purchases_view'),
     path('reportes/', ReportController.index, name='reports'),
     path('configuracion/', ConfigController.index, name='config'),
     path('configuracion/perfil/editar/', ConfigController.edit_profile, name='config_edit_profile'),
