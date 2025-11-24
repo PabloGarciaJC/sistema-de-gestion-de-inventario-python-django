@@ -60,7 +60,7 @@ class SaleDetailView:
         else:
             table_content = """
             <div class="empty-state">
-                <div style="font-size: 4rem; margin-bottom: 20px;">📝</div>
+                <div style="font-size: 4rem; margin-bottom: 20px;"><i class="fas fa-file-invoice"></i></div>
                 <h3>No hay detalles de ventas registrados</h3>
                 <p>Comienza agregando el primer detalle</p>
             </div>

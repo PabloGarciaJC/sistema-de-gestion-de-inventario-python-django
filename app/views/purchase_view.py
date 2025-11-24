@@ -65,7 +65,7 @@ class PurchaseView:
         else:
             table_content = """
             <div class="empty-state">
-                <div style="font-size: 4rem; margin-bottom: 20px;">🛒</div>
+                <div style="font-size: 4rem; margin-bottom: 20px;"><i class="fas fa-shopping-cart"></i></div>
                 <h3>No hay compras registradas</h3>
                 <p>Comienza agregando tu primera compra</p>
             </div>

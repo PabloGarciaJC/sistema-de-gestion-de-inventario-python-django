@@ -4,7 +4,10 @@ class Layout:
     @staticmethod
     def get_styles():
         """Carga los estilos CSS desde archivo externo"""
-        return '<link rel="stylesheet" href="/static/css/main.css">'
+        return '''
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        '''
     
     @staticmethod
     def navbar(user):
@@ -12,7 +15,7 @@ class Layout:
         return f"""
         <div class="navbar">
             <div class="navbar-content">
-                <h1>Sistema de Gestión</h1>
+                <h1>Sistema de Gestión de Inventario</h1>
                 <div class="navbar-menu">
                     <span>Hola, {user['username']}</span>
                     <a href="/logout/">Cerrar Sesión</a>
@@ -67,7 +70,7 @@ class Layout:
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>{title} - Sistema de Gestión</title>
+            <title>{title} - Sistema de Gestión de Inventario</title>
             {styles}
         </head>
         <body>

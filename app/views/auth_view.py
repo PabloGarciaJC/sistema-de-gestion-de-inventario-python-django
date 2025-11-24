@@ -13,6 +13,7 @@ class AuthView:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - Sistema de Inventario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/static/css/auth.css">
 </head>
 <body>
@@ -23,7 +24,7 @@ class AuthView:
     <div class="auth-card">
             <!-- Usuarios de Prueba -->
         <div class="test-users-section">
-            <h3 class="test-users-title">⚡ Acceso Rápido</h3>
+            <h3 class="test-users-title"><i class="fas fa-bolt"></i> Acceso Rápido</h3>
             <p class="test-users-subtitle">Usuarios ficticios para realizar pruebas</p>
             <div class="test-users-grid">
                 <div class="user-card" data-username="admin" data-password="admin123">
@@ -43,7 +44,7 @@ class AuthView:
                 </div>
             </div>
         </div>
-        <h2>🔐 Iniciar Sesión</h2>
+        <h2><i class="fas fa-lock"></i> Iniciar Sesión</h2>
         <p>Bienvenido al Sistema de Inventario</p>
         {error_html}
         <form method="POST" id="login-form">
@@ -89,12 +90,13 @@ class AuthView:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - Sistema de Inventario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/static/css/auth.css">
 </head>
 <body>
 <div class="auth-container">
     <div class="auth-card">
-        <h2>📝 Crear Cuenta</h2>
+        <h2><i class="fas fa-user-plus"></i> Crear Cuenta</h2>
         <p>Regístrate para acceder al sistema</p>
         {errors_html}
         <form method="POST">

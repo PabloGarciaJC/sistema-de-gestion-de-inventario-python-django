@@ -46,7 +46,7 @@ class ClientView:
         else:
             table_content = """
             <div class="empty-state">
-                <div style="font-size: 4rem; margin-bottom: 20px;">👥</div>
+                <div style="font-size: 4rem; margin-bottom: 20px;"><i class="fas fa-users"></i></div>
                 <h3>No hay clientes registrados</h3>
                 <p>Comienza agregando tu primer cliente</p>
             </div>

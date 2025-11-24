@@ -46,7 +46,7 @@ class ProductView:
         else:
             table_content = """
             <div class="empty-state">
-                <div style="font-size: 4rem; margin-bottom: 20px;">📦</div>
+                <div style="font-size: 4rem; margin-bottom: 20px;"><i class="fas fa-box"></i></div>
                 <h3>No hay productos registrados</h3>
                 <p>Comienza agregando tu primer producto</p>
             </div>

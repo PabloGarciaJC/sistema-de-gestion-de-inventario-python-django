@@ -17,7 +17,7 @@ class DashboardView:
                         <p style="margin: 0; opacity: 0.9; font-size: 14px;">Productos</p>
                         <h2 style="margin: 10px 0 0 0; font-size: 32px; font-weight: 700;">{stats['total_productos']}</h2>
                     </div>
-                    <div style="font-size: 40px; opacity: 0.3;">📦</div>
+                    <div style="font-size: 40px; opacity: 0.3;"><i class="fas fa-box"></i></div>
                 </div>
             </div>
             
@@ -27,7 +27,7 @@ class DashboardView:
                         <p style="margin: 0; opacity: 0.9; font-size: 14px;">Ventas del Mes</p>
                         <h2 style="margin: 10px 0 0 0; font-size: 32px; font-weight: 700;">${stats['ventas_mes']:,.2f}</h2>
                     </div>
-                    <div style="font-size: 40px; opacity: 0.3;">💰</div>
+                    <div style="font-size: 40px; opacity: 0.3;"><i class="fas fa-dollar-sign"></i></div>
                 </div>
             </div>
             
@@ -37,7 +37,7 @@ class DashboardView:
                         <p style="margin: 0; opacity: 0.9; font-size: 14px;">Compras del Mes</p>
                         <h2 style="margin: 10px 0 0 0; font-size: 32px; font-weight: 700;">${stats['compras_mes']:,.2f}</h2>
                     </div>
-                    <div style="font-size: 40px; opacity: 0.3;">🛒</div>
+                    <div style="font-size: 40px; opacity: 0.3;"><i class="fas fa-shopping-cart"></i></div>
                 </div>
             </div>
             
@@ -47,7 +47,7 @@ class DashboardView:
                         <p style="margin: 0; opacity: 0.9; font-size: 14px;">Clientes</p>
                         <h2 style="margin: 10px 0 0 0; font-size: 32px; font-weight: 700;">{stats['total_clientes']}</h2>
                     </div>
-                    <div style="font-size: 40px; opacity: 0.3;">👥</div>
+                    <div style="font-size: 40px; opacity: 0.3;"><i class="fas fa-users"></i></div>
                 </div>
             </div>
         </div>
@@ -115,7 +115,7 @@ class DashboardView:
         productos_stock_section = f"""
         <div class="card" style="margin-bottom: 30px;">
             <div class="card-header">
-                <span>⚠️ Productos con Stock Bajo</span>
+                <span><i class="fas fa-exclamation-triangle"></i> Productos con Stock Bajo</span>
                 <a href="/productos/" class="btn" style="background: #6b7280; color: white;">Ver Todos</a>
             </div>
             <table>
@@ -159,12 +159,12 @@ class DashboardView:
                 </tr>
                 """
         else:
-            ventas_rows = '<tr><td colspan="6" style="text-align: center; padding: 30px; color: #6b7280;">📊 No hay ventas registradas</td></tr>'
+            ventas_rows = '<tr><td colspan="6" style="text-align: center; padding: 30px; color: #6b7280;"><i class="fas fa-chart-line"></i> No hay ventas registradas</td></tr>'
         
         ultimas_ventas_section = f"""
         <div class="card" style="margin-bottom: 30px;">
             <div class="card-header">
-                <span>💳 Últimas Ventas</span>
+                <span><i class="fas fa-credit-card"></i> Últimas Ventas</span>
                 <a href="/ventas/" class="btn btn-primary">Ver Todas</a>
             </div>
             <table>
@@ -210,12 +210,12 @@ class DashboardView:
                 </tr>
                 """
         else:
-            compras_rows = '<tr><td colspan="6" style="text-align: center; padding: 30px; color: #6b7280;">📦 No hay compras registradas</td></tr>'
+            compras_rows = '<tr><td colspan="6" style="text-align: center; padding: 30px; color: #6b7280;"><i class="fas fa-shopping-cart"></i> No hay compras registradas</td></tr>'
         
         ultimas_compras_section = f"""
         <div class="card">
             <div class="card-header">
-                <span>🛍️ Últimas Compras</span>
+                <span><i class="fas fa-shopping-bag"></i> Últimas Compras</span>
                 <a href="/compras/" class="btn btn-primary">Ver Todas</a>
             </div>
             <table>
@@ -239,8 +239,8 @@ class DashboardView:
         # Bienvenida personalizada
         welcome_card = f"""
         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            <h1 style="margin: 0 0 10px 0; font-size: 28px;">¡Bienvenido, {user['nombre_completo']}! 👋</h1>
-            <p style="margin: 0; opacity: 0.9; font-size: 16px;">Rol: {user['rol']} | Dashboard del Sistema de Gestión</p>
+            <h1 style="margin: 0 0 10px 0; font-size: 28px;">¡Bienvenido, {user['nombre_completo']}!</h1>
+            <p style="margin: 0; opacity: 0.9; font-size: 16px;">Rol: {user['rol']} | Dashboard del Sistema de Gestión de Inventario</p>
         </div>
         """
         

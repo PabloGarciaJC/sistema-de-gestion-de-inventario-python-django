@@ -172,9 +172,9 @@ class ReportView:
             </table>
         </div>
         
-        <div class="card" style="margin-top: 20px;">
+        <div class="card" style="margin-bottom: 30px;">
             <div class="card-header">
-                <span>⚠️ Productos con Stock Bajo</span>
+                <span><i class="fas fa-exclamation-triangle"></i> Productos con Stock Bajo</span>
                 <span style="font-size: 0.9rem; color: #666; font-weight: normal;">(Stock menor o igual a 10 unidades)</span>
             </div>
             <table>

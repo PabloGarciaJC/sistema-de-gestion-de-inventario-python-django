@@ -57,7 +57,7 @@ class ConfigView:
         # Sección de estadísticas del sistema
         stats_section = f"""
         <div class="card">
-            <div class="card-header">📊 Estadísticas del Sistema</div>
+            <div class="card-header"><i class="fas fa-chart-bar"></i> Estadísticas del Sistema</div>
             <div class="stats-grid">
                 <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                     <h3>Usuarios</h3>
@@ -103,7 +103,7 @@ class ConfigView:
         users_section = f"""
         <div class="card">
             <div class="card-header">
-                <span>👥 Usuarios del Sistema</span>
+                <span><i class="fas fa-users"></i> Usuarios del Sistema</span>
                 <a href="/configuracion/usuarios/crear/" class="btn btn-primary">+ Nuevo Usuario</a>
             </div>
             <table>
