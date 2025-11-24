@@ -11,6 +11,7 @@ from app.controllers.sale_controller import SaleController
 from app.controllers.sale_detail_controller import SaleDetailController
 from app.controllers.purchase_controller import PurchaseController
 from app.controllers.purchase_detail_controller import PurchaseDetailController
+from app.controllers.inventory_movement_controller import InventoryMovementController
 from app.controllers.report_controller import ReportController
 from app.controllers.config_controller import ConfigController
 
@@ -63,6 +64,11 @@ urlpatterns = [
     path('detalle-compras/<int:detail_id>/editar/', PurchaseDetailController.edit, name='purchase_details_edit'),
     path('detalle-compras/<int:detail_id>/eliminar/', PurchaseDetailController.delete, name='purchase_details_delete'),
     path('detalle-compras/<int:detail_id>/ver/', PurchaseDetailController.view, name='purchase_details_view'),
+    path('movimientos-inventario/', InventoryMovementController.index, name='inventory_movements'),
+    path('movimientos-inventario/crear/', InventoryMovementController.create, name='inventory_movements_create'),
+    path('movimientos-inventario/<int:movement_id>/editar/', InventoryMovementController.edit, name='inventory_movements_edit'),
+    path('movimientos-inventario/<int:movement_id>/eliminar/', InventoryMovementController.delete, name='inventory_movements_delete'),
+    path('movimientos-inventario/<int:movement_id>/ver/', InventoryMovementController.view, name='inventory_movements_view'),
     path('reportes/', ReportController.index, name='reports'),
     path('configuracion/', ConfigController.index, name='config'),
     path('configuracion/perfil/editar/', ConfigController.edit_profile, name='config_edit_profile'),

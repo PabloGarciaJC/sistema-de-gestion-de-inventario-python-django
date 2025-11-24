@@ -4,7 +4,7 @@ class Sale:
     """Modelo de Venta"""
     
     @staticmethod
-    def get_all():
+    def get_all(limit=None):
         """Obtiene todas las ventas con información del cliente"""
         query = """
             SELECT 
@@ -22,6 +22,8 @@ class Sale:
             INNER JOIN pablogarciajcbd.usuarios u ON v.usuario_id = u.id
             ORDER BY v.fecha DESC, v.id DESC
         """
+        if limit:
+            query += f" LIMIT {limit}"
         return Database.execute_query(query)
     
     @staticmethod

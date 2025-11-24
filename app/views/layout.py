@@ -85,6 +85,7 @@ class Layout:
             {'url': '/clientes/', 'label': 'Clientes', 'key': 'clientes'},
             {'url': '/proveedores/', 'label': 'Proveedores', 'key': 'proveedores'},
             {'url': '/almacenes/', 'label': 'Almacenes', 'key': 'almacenes'},
+            {'url': '/movimientos-inventario/', 'label': 'Movimientos Inventario', 'key': 'movimientos-inventario'},
             {'url': '/roles/', 'label': 'Roles', 'key': 'roles'},
             {'url': '/ventas/', 'label': 'Ventas', 'key': 'ventas'},
             {'url': '/detalle-ventas/', 'label': 'Detalle Ventas', 'key': 'detalle-ventas'},

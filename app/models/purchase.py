@@ -2,7 +2,7 @@ from config.database import Database
 
 class Purchase:
     @staticmethod
-    def get_all():
+    def get_all(limit=None):
         """Obtener todas las compras con información del proveedor y usuario"""
         query = """
             SELECT c.*, 
@@ -13,6 +13,8 @@ class Purchase:
             INNER JOIN usuarios u ON c.usuario_id = u.id
             ORDER BY c.fecha DESC, c.id DESC
         """
+        if limit:
+            query += f" LIMIT {limit}"
         return Database.execute_query(query)
     
     @staticmethod
@@ -156,3 +158,15 @@ class Purchase:
                     fetch=False
                 )
         return True
+    
+    @staticmethod
+    def total_compras_mes():
+        """Calcula el total de compras del mes actual"""
+        query = """
+            SELECT COALESCE(SUM(total), 0) as total
+            FROM compras
+            WHERE MONTH(fecha) = MONTH(CURRENT_DATE())
+            AND YEAR(fecha) = YEAR(CURRENT_DATE())
+        """
+        result = Database.execute_query(query, fetch=True)
+        return result[0]['total'] if result else 0

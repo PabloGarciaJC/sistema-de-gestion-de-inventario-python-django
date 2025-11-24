@@ -93,3 +93,16 @@ class Product:
         """Elimina un producto (soft delete cambiando activo a 0)"""
         query = "UPDATE pablogarciajcbd.productos SET activo = 0 WHERE id = %s"
         return Database.execute_query(query, (product_id,), fetch=False)
+    
+    @staticmethod
+    def get_low_stock(limit=10):
+        """Obtiene productos con stock bajo"""
+        query = """
+            SELECT p.id, p.nombre, p.stock_actual, c.nombre as categoria
+            FROM productos p
+            LEFT JOIN categorias c ON p.categoria_id = c.id
+            WHERE p.stock_actual < 10 AND p.activo = 1
+            ORDER BY p.stock_actual ASC
+            LIMIT %s
+        """
+        return Database.execute_query(query, (limit,), fetch=True)
