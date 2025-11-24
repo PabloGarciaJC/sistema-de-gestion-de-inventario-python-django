@@ -5,6 +5,7 @@ from app.controllers.product_controller import ProductController
 from app.controllers.category_controller import CategoryController
 from app.controllers.sale_controller import SaleController
 from app.controllers.report_controller import ReportController
+from app.controllers.config_controller import ConfigController
 
 urlpatterns = [
     path('', DashboardController.index, name='dashboard'),
@@ -15,4 +16,5 @@ urlpatterns = [
     path('categorias/', CategoryController.index, name='categories'),
     path('ventas/', SaleController.index, name='sales'),
     path('reportes/', ReportController.index, name='reports'),
+    path('configuracion/', ConfigController.index, name='config'),
 ]

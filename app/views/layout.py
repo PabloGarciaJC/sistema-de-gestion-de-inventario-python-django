@@ -84,7 +84,7 @@ class Layout:
             {'url': '/categorias/', 'label': 'Categorías', 'key': 'categorias'},
             {'url': '/ventas/', 'label': 'Ventas', 'key': 'ventas'},
             {'url': '/reportes/', 'label': 'Reportes', 'key': 'reportes'},
-            {'url': '#', 'label': 'Configuración', 'key': 'configuracion'},
+            {'url': '/configuracion/', 'label': 'Configuración', 'key': 'configuracion'},
         ]
         
         menu_html = ""
