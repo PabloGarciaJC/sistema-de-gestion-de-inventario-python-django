@@ -98,4 +98,4 @@ EXPOSE 8081
 ## ---------------------------------------------------------
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-CMD ["/usr/local/bin/wait-for-mysql.sh", "python", "index.py"]
+CMD ["/usr/local/bin/wait-for-mysql.sh", "python", "main.py"]
