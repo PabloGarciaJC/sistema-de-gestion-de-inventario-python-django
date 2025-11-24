@@ -82,6 +82,7 @@ class Layout:
             {'url': '/', 'label': 'Dashboard', 'key': 'dashboard'},
             {'url': '/productos/', 'label': 'Productos', 'key': 'productos'},
             {'url': '/categorias/', 'label': 'Categorías', 'key': 'categorias'},
+            {'url': '/clientes/', 'label': 'Clientes', 'key': 'clientes'},
             {'url': '/ventas/', 'label': 'Ventas', 'key': 'ventas'},
             {'url': '/reportes/', 'label': 'Reportes', 'key': 'reportes'},
             {'url': '/configuracion/', 'label': 'Configuración', 'key': 'configuracion'},

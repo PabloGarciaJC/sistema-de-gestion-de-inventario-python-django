@@ -3,6 +3,7 @@ from app.controllers.auth_controller import AuthController
 from app.controllers.dashboard_controller import DashboardController
 from app.controllers.product_controller import ProductController
 from app.controllers.category_controller import CategoryController
+from app.controllers.client_controller import ClientController
 from app.controllers.sale_controller import SaleController
 from app.controllers.report_controller import ReportController
 from app.controllers.config_controller import ConfigController
@@ -20,6 +21,10 @@ urlpatterns = [
     path('categorias/crear/', CategoryController.create, name='categories_create'),
     path('categorias/<int:category_id>/editar/', CategoryController.edit, name='categories_edit'),
     path('categorias/<int:category_id>/eliminar/', CategoryController.delete, name='categories_delete'),
+    path('clientes/', ClientController.index, name='clients'),
+    path('clientes/crear/', ClientController.create, name='clients_create'),
+    path('clientes/<int:client_id>/editar/', ClientController.edit, name='clients_edit'),
+    path('clientes/<int:client_id>/eliminar/', ClientController.delete, name='clients_delete'),
     path('ventas/', SaleController.index, name='sales'),
     path('ventas/crear/', SaleController.create, name='sales_create'),
     path('ventas/<int:sale_id>/editar/', SaleController.edit, name='sales_edit'),

@@ -96,13 +96,8 @@ class Sale:
             data.get('notas', '')
         )
         
-        # Ejecutar y obtener el ID insertado
-        result = Database.execute_query(query_venta, params_venta, fetch=False)
-        
-        # Obtener el ID de la venta recién creada
-        query_last_id = "SELECT LAST_INSERT_ID() as id"
-        venta_id_result = Database.execute_query(query_last_id)
-        venta_id = venta_id_result[0]['id']
+        # Ejecutar y obtener el ID insertado (lastrowid)
+        venta_id = Database.execute_query(query_venta, params_venta, fetch=False)
         
         # Insertar los detalles
         query_detalle = """
