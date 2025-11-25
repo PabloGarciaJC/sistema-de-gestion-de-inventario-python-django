@@ -9,6 +9,7 @@ class Layout:
         <link rel="stylesheet" href="/static/css/main.css">
         <link rel="stylesheet" href="/static/css/forms.css">
         <link rel="stylesheet" href="/static/css/dashboard.css">
+        <link rel="stylesheet" href="/static/css/swal.css">
         '''
     
     @staticmethod
@@ -89,6 +90,12 @@ class Layout:
                 </div>
             </div>
             <script src="/static/js/main.js"></script>
+            <script>
+                // Pasar estado del usuario al JavaScript
+                // activo=1 → true (puede modificar), activo=0 → false (no puede modificar)
+                window.userActive = {('true' if user.get('activo', 1) == 1 else 'false')};
+            </script>
+            <script src="/static/js/protection.js"></script>
         </body>
         </html>
         """

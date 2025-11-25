@@ -12,7 +12,7 @@ class User:
             SELECT u.*, r.nombre as rol
             FROM usuarios u
             JOIN roles r ON u.rol_id = r.id
-            WHERE (u.username = %s OR u.email = %s) AND u.password = %s AND u.activo = 1
+            WHERE (u.username = %s OR u.email = %s) AND u.password = %s
         """
         users = Database.execute_query(query, (username, username, password_hash))
         return users[0] if users else None

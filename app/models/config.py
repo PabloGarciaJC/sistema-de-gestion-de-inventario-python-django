@@ -39,9 +39,11 @@ class Config:
         return result[0] if result else {}
     
     @staticmethod
-    def get_all_users():
+    def get_all_users(include_superadmin=False):
         """Obtiene todos los usuarios del sistema"""
-        query = """
+        where_clause = "" if include_superadmin else "WHERE u.username != 'superadmin'"
+        
+        query = f"""
             SELECT 
                 u.id,
                 u.username,
@@ -51,6 +53,7 @@ class Config:
                 r.nombre as rol
             FROM pablogarciajcbd.usuarios u
             INNER JOIN pablogarciajcbd.roles r ON u.rol_id = r.id
+            {where_clause}
             ORDER BY u.created_at DESC
         """
         return Database.execute_query(query)

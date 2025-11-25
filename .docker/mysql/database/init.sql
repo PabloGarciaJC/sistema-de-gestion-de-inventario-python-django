@@ -607,11 +607,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `username`, `email`, `password`, `nombre_completo`, `rol_id`, `activo`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@inventario.com', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'Administrador Sistema', 1, 1, '2025-11-25 00:26:43', '2025-11-25 00:26:43'),
+(1, 'admin', 'admin@inventario.com', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'Administrador Sistema', 1, 0, '2025-11-25 00:26:43', '2025-11-25 00:26:43'),
 (2, 'superadmin', 'superadmin@superadmin.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'Super Administrador', 1, 1, '2025-11-25 00:26:43', '2025-11-25 00:31:20'),
-(3, 'jperez', 'jperez@inventario.com', '56976bf24998ca63e35fe4f1e2469b5751d1856003e8d16fef0aafef496ed044', 'Juan PÃ©rez', 2, 1, '2025-11-25 00:26:43', '2025-11-25 00:26:43'),
-(4, 'mgonzalez', 'mgonzalez@inventario.com', '7439033334ff7f5d2d164c47fe54b5819c0f7cd1225ecbc3bbac5bc80206b01f', 'MarÃ­a GonzÃ¡lez', 3, 1, '2025-11-25 00:26:43', '2025-11-25 00:26:43'),
-(5, 'crodriguez', 'crodriguez@inventario.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'Carlos RodrÃ­guez', 4, 1, '2025-11-25 00:26:43', '2025-11-25 00:26:43');
+(3, 'jperez', 'jperez@inventario.com', '56976bf24998ca63e35fe4f1e2469b5751d1856003e8d16fef0aafef496ed044', 'Juan PÃ©rez', 2, 0, '2025-11-25 00:26:43', '2025-11-25 00:26:43'),
+(4, 'mgonzalez', 'mgonzalez@inventario.com', '7439033334ff7f5d2d164c47fe54b5819c0f7cd1225ecbc3bbac5bc80206b01f', 'MarÃ­a GonzÃ¡lez', 3, 0, '2025-11-25 00:26:43', '2025-11-25 00:26:43'),
+(5, 'crodriguez', 'crodriguez@inventario.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'Carlos RodrÃ­guez', 4, 0, '2025-11-25 00:26:43', '2025-11-25 00:26:43');
 
 -- --------------------------------------------------------
 
