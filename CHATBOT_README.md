@@ -1,20 +1,20 @@
-# 🤖 Chatbot con IA - Sistema de Inventario
+# Chatbot con IA - Sistema de Inventario
 
 ## Descripción
 
 Asistente virtual con Inteligencia Artificial integrado al Sistema de Inventario. Utiliza Google Gemini AI para responder preguntas y ayudar con la gestión del inventario mediante lenguaje natural.
 
-## ✨ Características
+## Características
 
-- 💬 **Chat en tiempo real** con interfaz moderna y responsiva
-- 🧠 **Inteligencia Artificial** powered by Google Gemini
-- 📊 **Consultas inteligentes** sobre productos, ventas, compras
-- 🔍 **Búsqueda de productos** por nombre o descripción
-- 📈 **Resúmenes automáticos** de ventas y compras
-- 💾 **Historial de conversaciones** guardado por usuario
-- 🎯 **Sugerencias rápidas** para consultas comunes
+- **Chat en tiempo real** con interfaz moderna y responsiva
+- **Inteligencia Artificial** powered by Google Gemini
+- **Consultas inteligentes** sobre productos, ventas, compras
+- **Búsqueda de productos** por nombre o descripción
+- **Resúmenes automáticos** de ventas y compras
+- **Historial de conversaciones** guardado por usuario
+- **Sugerencias rápidas** para consultas comunes
 
-## 🚀 Instalación
+## Instalación
 
 ### 1. Instalar dependencias
 
@@ -69,7 +69,7 @@ python main.py
 
 Abre tu navegador en: `http://localhost:8000/chatbot/`
 
-## 📖 Uso
+## Uso
 
 ### Comandos básicos
 
@@ -102,27 +102,6 @@ Bot: Para registrar una nueva venta:
      ...
 ```
 
-## 🏗️ Arquitectura
-
-### Estructura de archivos
-
-```
-app/
-├── controllers/
-│   └── chatbot_controller.py      # Endpoints del chatbot
-├── models/
-│   └── chatbot_message.py         # Modelo de mensajes
-├── services/
-│   └── ai_service.py              # Servicio de IA con Gemini
-├── views/
-│   └── chatbot_view.py            # Vista HTML del chatbot
-└── static/
-    ├── css/
-    │   └── chatbot.css            # Estilos del chat
-    └── js/
-        └── chatbot.js             # Lógica del frontend
-```
-
 ### Rutas disponibles
 
 - `GET /chatbot/` - Interfaz del chatbot
@@ -130,7 +109,7 @@ app/
 - `POST /chatbot/clear-history/` - Limpiar historial
 - `GET /chatbot/history/` - Obtener historial
 
-## 🎨 Personalización
+## Personalización
 
 ### Modificar respuestas de la IA
 
@@ -147,6 +126,7 @@ def process_query(self, user_message, user_id):
 ### Cambiar estilos
 
 Modifica `app/static/css/chatbot.css` para ajustar:
+
 - Colores del tema
 - Tamaño de fuentes
 - Animaciones
@@ -162,15 +142,15 @@ def tu_nueva_funcion(self):
     pass
 ```
 
-## 🔒 Seguridad
+## Seguridad
 
-- ✅ Autenticación requerida para acceder al chatbot
-- ✅ Mensajes asociados al usuario autenticado
-- ✅ API Key no expuesta en el frontend
-- ✅ Validación de inputs del usuario
-- ✅ Manejo de errores y excepciones
+- Autenticación requerida para acceder al chatbot
+- Mensajes asociados al usuario autenticado
+- API Key no expuesta en el frontend
+- Validación de inputs del usuario
+- Manejo de errores y excepciones
 
-## 📊 Base de Datos
+## Base de Datos
 
 ### Tabla: chatbot_messages
 
@@ -182,7 +162,7 @@ def tu_nueva_funcion(self):
 | response   | TEXT      | Respuesta generada por la IA   |
 | created_at | TIMESTAMP | Fecha y hora del mensaje       |
 
-## 🐛 Solución de problemas
+## Solución de problemas
 
 ### Error: "Module 'google.generativeai' not found"
 
@@ -193,6 +173,7 @@ pip install google-generativeai
 ### Error: "API key not valid"
 
 Verifica que:
+
 1. Tu API key sea correcta
 2. La variable de entorno esté configurada
 3. La API de Gemini esté habilitada en tu cuenta de Google
@@ -210,7 +191,7 @@ Verifica que:
 2. Verifica que `chatbot.css` esté cargando
 3. Revisa la consola del navegador por errores
 
-## 🔄 Actualización
+## Actualización
 
 Para actualizar a una nueva versión:
 
@@ -222,14 +203,14 @@ pip install -U google-generativeai
 python init_chatbot.py
 ```
 
-## 📝 Notas
+## Notas
 
 - El chatbot utiliza **Google Gemini Pro** (gratuito con límites)
 - El historial se guarda en la base de datos local
 - Las respuestas son generadas en tiempo real
 - Se puede cambiar a otra IA (OpenAI, Claude, etc.) modificando `ai_service.py`
 
-## 🤝 Contribuir
+## Contribuir
 
 Para agregar nuevas funcionalidades:
 
@@ -238,7 +219,7 @@ Para agregar nuevas funcionalidades:
 3. Actualiza la documentación
 4. Prueba exhaustivamente
 
-## 📄 Licencia
+## Licencia
 
 Parte del Sistema de Inventario - Todos los derechos reservados
 

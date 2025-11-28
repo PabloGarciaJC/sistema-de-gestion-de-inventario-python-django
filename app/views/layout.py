@@ -49,7 +49,7 @@ class Layout:
             {'url': '/compras/', 'label': 'Compras', 'key': 'compras'},
             {'url': '/detalle-compras/', 'label': 'Detalle Compras', 'key': 'detalle-compras'},
             {'url': '/reportes/', 'label': 'Reportes', 'key': 'reportes'},
-            {'url': '/chatbot/', 'label': '🤖 Chatbot IA', 'key': 'chatbot'},
+            {'url': '/chatbot/', 'label': '<i class="fas fa-robot"></i> Chatbot IA', 'key': 'chatbot'},
             {'url': '/configuracion/', 'label': 'Configuración', 'key': 'configuracion'},
             {'url': '/documentacion/', 'label': 'Documentación', 'key': 'documentacion'},
         ]
