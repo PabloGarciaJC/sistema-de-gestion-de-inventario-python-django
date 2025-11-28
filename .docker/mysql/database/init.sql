@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mysql
--- Tiempo de generación: 25-11-2025 a las 08:48:07
+-- Tiempo de generación: 28-11-2025 a las 09:56:56
 -- Versión del servidor: 9.5.0
 -- Versión de PHP: 8.3.26
 
@@ -75,6 +75,20 @@ INSERT INTO `categorias` (`id`, `nombre`, `descripcion`, `activo`, `created_at`)
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `chatbot_messages`
+--
+
+CREATE TABLE `chatbot_messages` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `message` text NOT NULL,
+  `response` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `clientes`
 --
 
@@ -124,7 +138,7 @@ INSERT INTO `clientes` (`id`, `nombre`, `documento`, `telefono`, `email`, `direc
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para lnoa tabla `compras`
+-- Estructura de tabla para la tabla `compras`
 --
 
 CREATE TABLE `compras` (
@@ -380,7 +394,8 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('jqr5vqfxwbq9kssfvzf5d7zmgyas2bl2', 'eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIn0:1vNohV:LMiJV_cdJetFu7T5TFaNJyKBZ1LiIKj9FdjkSTVdDeo', '2025-12-09 08:47:05.751027');
+('jqr5vqfxwbq9kssfvzf5d7zmgyas2bl2', 'eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIn0:1vNohV:LMiJV_cdJetFu7T5TFaNJyKBZ1LiIKj9FdjkSTVdDeo', '2025-12-09 08:47:05.751027'),
+('rhzfnrpjursd9dthrb660y20yl3qb487', 'eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIn0:1vOvAM:155z9aDqOF-2k0Dz1LJPR-EBgzMFIp1EnrGCRV3VjCk', '2025-12-12 09:53:26.478534');
 
 -- --------------------------------------------------------
 
@@ -411,7 +426,7 @@ INSERT INTO `movimientos_inventario` (`id`, `producto_id`, `almacen_id`, `tipo_m
 (4, 5, 1, 'entrada', 4, 2, 'C-2024-001', 'Compra de auriculares', '2025-11-25 00:26:43'),
 (5, 6, 2, 'entrada', 30, 2, 'C-2024-002', 'Entrada de arroz', '2025-11-25 00:26:43'),
 (6, 7, 2, 'entrada', 25, 2, 'C-2024-002', 'Entrada de aceite', '2025-11-25 00:26:43'),
-  (7, 8, 2, 'entrada', 50, 2, 'C-2024-002', 'Entrada de azúcar', '2025-11-25 00:26:43'),
+(7, 8, 2, 'entrada', 50, 2, 'C-2024-002', 'Entrada de azúcar', '2025-11-25 00:26:43'),
 (8, 1, 1, 'salida', 2, 4, 'V-2024-001', 'Venta corporativa', '2025-11-25 00:26:43'),
 (9, 3, 1, 'salida', 1, 4, 'V-2024-002', 'Venta al por menor', '2025-11-25 00:26:43'),
 (10, 6, 2, 'salida', 20, 4, 'V-2024-003', 'Venta a distribuidor', '2025-11-25 00:26:43'),
@@ -697,6 +712,12 @@ ALTER TABLE `categorias`
   ADD UNIQUE KEY `nombre` (`nombre`);
 
 --
+-- Indices de la tabla `chatbot_messages`
+--
+ALTER TABLE `chatbot_messages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
@@ -817,6 +838,12 @@ ALTER TABLE `almacenes`
 --
 ALTER TABLE `categorias`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `chatbot_messages`
+--
+ALTER TABLE `chatbot_messages`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
