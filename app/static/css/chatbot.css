@@ -121,6 +121,44 @@
     line-height: 1.6;
 }
 
+/* Comandos básicos en bienvenida */
+.welcome-commands {
+    margin-top: 24px;
+    text-align: left;
+    display: inline-block;
+    border-radius: 12px;
+    padding: 20px 24px;
+    max-width: 530px;
+}
+.welcome-commands-title {
+    color: #667eea;
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+.welcome-commands-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.welcome-command-item {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: #333;
+    box-shadow: 0 1px 4px rgba(102,126,234,0.04);
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+.welcome-command-item:hover {
+    box-shadow: 0 4px 12px rgba(102,126,234,0.10);
+    border-color: #667eea;
+}
+
 /* Messages */
 .message {
     margin-bottom: 20px;

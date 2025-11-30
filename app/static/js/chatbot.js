@@ -59,12 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 location.reload();
             } else {
-                addBotMessage('❌ Lo siento, hubo un error al procesar tu mensaje.');
+                addBotMessage('Lo siento, hubo un error al procesar tu mensaje.');
                 console.error('Error:', data.error);
             }
         } catch (error) {
             console.error('Error al enviar mensaje:', error);
-            addBotMessage('❌ Error de conexión. Verifica tu internet e intenta de nuevo.');
+            addBotMessage('Error de conexión. Verifica tu internet e intenta de nuevo.');
         } finally {
             typingIndicator.style.display = 'none';
             messageInput.disabled = false;

@@ -36,6 +36,16 @@ class ChatbotView:
                 <p>Soy tu asistente de inventario con inteligencia artificial.</p>
                 <p>Puedes preguntarme sobre productos, ventas, compras, stock, proveedores, clientes y cualquier módulo del sistema.</p>
                 <p>Ejemplo: <strong>¿Qué productos tienen stock bajo?</strong></p>
+                <div class='welcome-commands'>
+                    <h4 class='welcome-commands-title'>Comandos básicos</h4>
+                    <ul class='welcome-commands-list'>
+                        <li class='welcome-command-item'><strong>"ayuda"</strong> - Muestra qué puede hacer el chatbot</li>
+                        <li class='welcome-command-item'><strong>"buscar producto [nombre]"</strong> - Busca productos específicos</li>
+                        <li class='welcome-command-item'><strong>"resumen de ventas"</strong> - Muestra estadísticas de ventas</li>
+                        <li class='welcome-command-item'><strong>"resumen de compras"</strong> - Muestra estadísticas de compras</li>
+                        <li class='welcome-command-item'><strong>"productos con stock bajo"</strong> - Lista productos con poco inventario</li>
+                    </ul>
+                </div>
             </div>
         """
         content = f"""

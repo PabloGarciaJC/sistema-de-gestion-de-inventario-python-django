@@ -27,6 +27,32 @@
 - **Configuración**: Gestión de usuarios del sistema, perfiles, contraseñas y parámetros generales.
 - **Documentación**: Página completa con guía de funcionalidades, tecnologías usadas, arquitectura y usuarios de prueba.
 
+### Chatbot con IA - Sistema de Inventario
+
+## Descripción
+
+Asistente virtual con Inteligencia Artificial integrado al Sistema de Inventario. Utiliza Google Gemini AI para responder preguntas y ayudar con la gestión del inventario mediante lenguaje natural.
+
+## Uso
+
+### Comandos básicos
+
+- **"ayuda"** - Muestra qué puede hacer el chatbot
+- **"buscar producto [nombre]"** - Busca productos específicos
+- **"resumen de ventas"** - Muestra estadísticas de ventas
+- **"resumen de compras"** - Muestra estadísticas de compras
+- **"productos con stock bajo"** - Lista productos con poco inventario
+
+## Características
+
+- **Chat en tiempo real** con interfaz moderna y responsiva
+- **Inteligencia Artificial** powered by Google Gemini
+- **Consultas inteligentes** sobre productos, ventas, compras
+- **Búsqueda de productos** por nombre o descripción
+- **Resúmenes automáticos** de ventas y compras
+- **Historial de conversaciones** guardado por usuario
+- **Sugerencias rápidas** para consultas comunes
+
 ### Roles de Usuario Iniciales
 
 El sistema está diseñado con **roles personalizables**:

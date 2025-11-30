@@ -22,9 +22,9 @@ def init_chatbot():
         print("\n[2/2] Verificando dependencias...")
         try:
             import google.generativeai as genai
-            print("✓ google-generativeai instalado correctamente")
+            print("google-generativeai instalado correctamente")
         except ImportError:
-            print("✗ ERROR: google-generativeai no está instalado")
+            print("ERROR: google-generativeai no está instalado")
             print("\nPara instalar, ejecuta:")
             print("  pip install google-generativeai")
             return False
@@ -37,7 +37,7 @@ def init_chatbot():
         print("   - Obtén tu key en: https://makersuite.google.com/app/apikey")
         print("   - Establece la variable de entorno:")
         print("     export GEMINI_API_KEY='tu-api-key-aqui'")
-        print("\n2. Accede al chatbot en: http://localhost:8000/chatbot/")
+        print("\n2. Accede al chatbot en: http://localhost:8081/chatbot/")
         print("\n3. El chatbot puede ayudarte con:")
         print("   - Consultas sobre productos e inventario")
         print("   - Resúmenes de ventas y compras")
